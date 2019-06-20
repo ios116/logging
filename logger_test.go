@@ -19,10 +19,10 @@ func TestLogger(t *testing.T) {
 	if b.String() != mustHave {
 		t.Errorf("we have %s but should be %s", b.String(),mustHave)
 	}
-	b.Reset()
+ 	b.Reset()
 
 	hws:=HwSubmitted{3456,"Code","please take a look at my homework"}
-	mustHave = fmt.Sprintf("%s submitted %d \"%s\"",date, hws.ID, hws.Comment)
+	mustHave = fmt.Sprintf(`%s submitted %d "%s"`,date, hws.ID, hws.Comment)
 	LogOtusEvent(&hws,&b)
 	if b.String() != mustHave {
 		t.Errorf("we have %s but should be %s", b.String(),mustHave)
